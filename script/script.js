@@ -39,9 +39,8 @@ function displayResults(weather) {
   let icon = document.querySelector(".weather-icon");
 
   // icon
-  const iconId = weather.current.condition.icon.substr(
-    "//cdn.weatherapi.com/weather/64x64".length
-  );
+  let iconlink = weather.current.condition.icon;
+  let iconId = iconlink.substr("//cdn.weatherapi.com/weather/64x64".length);
   icon.src = "./icons/" + iconId;
 
   // innertext
@@ -70,7 +69,6 @@ btnSearch.addEventListener("click", () => {
 inputEl.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
     getResults(inputEl.value);
+    inputEl.value = "";
   }
-
-  inputEl.value = "";
 });
