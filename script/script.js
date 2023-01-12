@@ -12,9 +12,10 @@ window.addEventListener("load", () => {
   loadEl.style.display = "none";
 });
 
+// fetch api
 function getResults(city) {
-  fetch(`
-  http://api.weatherapi.com/v1/current.json?key=2eee5be1c3914c1f93480912231201&q=${city}&aqi=yes`)
+  let url = `http://api.weatherapi.com/v1/current.json?key=2eee5be1c3914c1f93480912231201&q=${city}&aqi=yes`;
+  fetch(url)
     .then((weather) => {
       return weather.json();
     })
@@ -23,9 +24,8 @@ function getResults(city) {
 
 // displaying results
 function displayResults(weather) {
-  console.log(weather);
   // to show the output container
-  let displayEl = document.querySelector(".output-container");
+  const displayEl = document.querySelector(".output-container");
   displayEl.style.visibility = "visible";
 
   // getting el
@@ -38,6 +38,7 @@ function displayResults(weather) {
   let range = document.querySelector(".range");
   let icon = document.querySelector(".weather-icon");
 
+  // icon
   const iconId = weather.current.condition.icon.substr(
     "//cdn.weatherapi.com/weather/64x64".length
   );
@@ -49,10 +50,8 @@ function displayResults(weather) {
   region.innerText = `${weather.location.region}`;
   temp.innerText = `${weather.current.temp_c}°C`;
   month_date.innerText = `${weather.location.localtime}`;
-
   weather_el.innerHTML = `${weather.current.condition.text}`;
   range.innerHTML = `${weather.current.feelslike_c}°C / ${weather.current.temp_c}°C <i class="fa-solid fa-temperature-high">`;
-  // console.log(${weather.current.condition.icon});
 }
 
 // event listneres
