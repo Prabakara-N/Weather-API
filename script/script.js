@@ -71,4 +71,6 @@ inputEl.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
     getResults(inputEl.value);
   }
+
+  inputEl.value = "";
 });
