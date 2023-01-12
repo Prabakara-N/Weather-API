@@ -17,6 +17,10 @@ function getResults(city) {
   let url = `http://api.weatherapi.com/v1/current.json?key=2eee5be1c3914c1f93480912231201&q=${city}&aqi=yes`;
   fetch(url)
     .then((weather) => {
+      if (!weather.ok) {
+        alert("No weather found !!!");
+        throw new Error("No weather found !!!");
+      }
       return weather.json();
     })
     .then(displayResults);
