@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Custom Favicon -->
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+
+    <title>Weather APP</title>
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!--normalize CSS -->
+    <link rel="stylesheet" href="./styles/normalize.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- inputs -->
+      <div class="input-container">
+        <h2 class="title">
+          Weather <span>APP</span>
+          <i class="fa-solid fa-cloud-sun-rain sun-i"></i>
+        </h2>
+        <input type="text" id="city-input" placeholder="Enter a city name..." />
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <button class="search" id="btn">Search</button>
+      </div>
+
+      <!-- loader -->
+      <div class="loader"></div>
+      <!-- outputs -->
+      <div class="output-container">
+        <h2 class="city">Tiruppur, IN</h2>
+        <p class="date">Monday 06 , March 2023</p>
+        <h1 class="celcius">28°C</h1>
+        <p class="type">HAZE <i class="fa-solid fa-cloud"></i></p>
+        <p class="range">27°C / 29°C</p>
+      </div>
+    </div>
+
+    <!-- social icons -->
+    <div class="social-icon">
+      <a href="https://www.instagram.com/swag__55__/"
+        ><i class="fa-brands fa-instagram icons"></i
+      ></a>
+      <a href="https://www.linkedin.com/in/prabakaran-m-105289219/"
+        ><i class="fa-brands fa-linkedin icons"></i
+      ></a>
+      <a href="https://github.com/Prabakara-N"
+        ><i class="fa-brands fa-github icons"></i
+      ></a>
+    </div>
+    <!-- social icons -->
+
+    <!-- Custom JavaScript -->
+    <script src="./script/script.js"></script>
+  </body>
+</html>
