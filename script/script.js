@@ -42,6 +42,7 @@ function displayResults(weather) {
     "//cdn.weatherapi.com/weather/64x64".length
   );
   icon.src = "./icons/" + iconId;
+
   // innertext
   city.innerText = `${weather.location.name},`;
   country.innerText = `${weather.location.country}`;
