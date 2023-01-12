@@ -4,12 +4,6 @@ const inputEl = document.getElementById("city-input");
 // btn
 const btnSearch = document.getElementById("btn");
 
-// api
-const api = {
-  key: "fcc8de7015bbb202209bbf0261babf4c",
-  base: "https://api.openweathermap.org/data/2.5/",
-};
-
 // functions
 // loader
 window.addEventListener("load", () => {
@@ -18,9 +12,9 @@ window.addEventListener("load", () => {
   loadEl.style.display = "none";
 });
 
-// api function
-function getResults(query) {
-  fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+function getResults(city) {
+  fetch(`
+  http://api.weatherapi.com/v1/current.json?key=2eee5be1c3914c1f93480912231201&q=${city}&aqi=yes`)
     .then((weather) => {
       return weather.json();
     })
@@ -30,35 +24,34 @@ function getResults(query) {
 // displaying results
 function displayResults(weather) {
   console.log(weather);
-  // getting el
+  // to show the output container
   let displayEl = document.querySelector(".output-container");
   displayEl.style.visibility = "visible";
 
+  // getting el
   let city = document.querySelector(".city");
+  let country = document.querySelector(".country");
   let month_date = document.querySelector(".date");
+  let region = document.querySelector(".region");
   let temp = document.querySelector(".celcius");
   let weather_el = document.querySelector(".type");
   let range = document.querySelector(".range");
+  let icon = document.querySelector(".weather-icon");
 
-  city.innerText = `${weather.name}, ${weather.sys.country}`;
+  const iconId = weather.current.condition.icon.substr(
+    "//cdn.weatherapi.com/weather/64x64".length
+  );
+  icon.src = "./icons/" + iconId;
+  // innertext
+  city.innerText = `${weather.location.name},`;
+  country.innerText = `${weather.location.country}`;
+  region.innerText = `${weather.location.region}`;
+  temp.innerText = `${weather.current.temp_c}°C`;
+  month_date.innerText = `${weather.location.localtime}`;
 
-  let dateTime = new Date(weather.dt * 1000 + weather.timezone * 1000);
-
-  let minutes = dateTime.getMinutes();
-  let weekday = dateTime.toLocaleString("default", { weekday: "short" });
-  let month = dateTime.toLocaleString("default", { month: "short" });
-  let date = dateTime.getDate();
-  let year = dateTime.getFullYear();
-
-  month_date.innerText = `${weekday} ${date} - ${month} ${year}`;
-
-  temp.innerText = `${Math.round(weather.main.temp)}°C`;
-
-  weather_el.innerHTML = `${weather.weather[0].main} <i class="fa-solid fa-cloud"></i>`;
-
-  range.innerText = `${Math.round(weather.main.temp_min)}°c / ${Math.round(
-    weather.main.temp_max
-  )}°c`;
+  weather_el.innerHTML = `${weather.current.condition.text}`;
+  range.innerHTML = `${weather.current.feelslike_c}°C / ${weather.current.temp_c}°C <i class="fa-solid fa-temperature-high">`;
+  // console.log(${weather.current.condition.icon});
 }
 
 // event listneres
@@ -78,5 +71,4 @@ inputEl.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
     getResults(inputEl.value);
   }
-  // console.log(cityValue);
 });

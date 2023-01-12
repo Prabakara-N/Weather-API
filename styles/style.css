@@ -78,6 +78,7 @@ span {
 }
 
 input {
+  position: relative;
   width: 350px;
   padding: 0.7rem 0 0.7rem 1rem;
   border: none;
@@ -158,9 +159,25 @@ input:focus {
 }
 
 .city {
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   font-weight: 600;
   letter-spacing: 3px;
+  font-style: italic;
+}
+
+.country {
+  font-size: 2rem;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.region {
+  margin-top: 0.75rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.25rem;
+  text-shadow: 2px 2px black;
+  font-weight: 500;
   font-style: italic;
 }
 
@@ -171,6 +188,18 @@ input:focus {
 
 .celcius {
   font-size: 5rem;
+  margin: 1.5rem auto;
+}
+
+.icon-contaoner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.weather-icon {
+  margin-top: -1.25rem;
 }
 
 .type {
@@ -287,9 +316,16 @@ input:focus {
     gap: 1rem;
   }
 
+  .country {
+    font-size: 1.75rem;
+  }
+
   input {
-    margin-right: 0;
-    margin-top: -1rem;
+    margin: -1rem auto 0 auto;
+  }
+
+  .search-icon {
+    left: 19.5rem;
   }
 
   .search {
@@ -304,8 +340,12 @@ input:focus {
 }
 
 @media screen and (max-width: 400px) {
-  h2 {
-    font-size: 2rem;
+  .city {
+    font-size: 2.25rem;
+  }
+
+  .country {
+    font-size: 1.5rem;
   }
 
   .date {
