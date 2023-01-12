@@ -44,8 +44,8 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   /* background-image: url(../images/bg.jpg); */
-  /* background-image: url(../images/bg-img.png); */
-  background-image: url(../images/Main-bg.jpg);
+  /* background-image: url(../images/Main-bg.jpg); */
+  background-image: url(../images/577304.jpg);
   background-position: center;
   background-size: cover;
   min-height: 100vh;
@@ -193,7 +193,7 @@ input:focus {
 /* *********** */
 
 .social-icon {
-  margin: 2.5rem auto;
+  margin: 2rem auto 1.7rem;
   display: flex;
   column-gap: 25px;
 }
