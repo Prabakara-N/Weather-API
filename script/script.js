@@ -35,15 +35,22 @@ function displayResults(weather) {
   displayEl.style.visibility = "visible";
 
   let city = document.querySelector(".city");
+  let month_date = document.querySelector(".date");
   let temp = document.querySelector(".celcius");
   let weather_el = document.querySelector(".type");
   let range = document.querySelector(".range");
 
   city.innerText = `${weather.name}, ${weather.sys.country}`;
 
-  let now = new Date();
-  let date = document.querySelector(".date");
-  date.innerText = dateBuilder(now);
+  let dateTime = new Date(weather.dt * 1000 + weather.timezone * 1000);
+
+  let minutes = dateTime.getMinutes();
+  let weekday = dateTime.toLocaleString("default", { weekday: "short" });
+  let month = dateTime.toLocaleString("default", { month: "short" });
+  let date = dateTime.getDate();
+  let year = dateTime.getFullYear();
+
+  month_date.innerText = `${weekday} ${date} - ${month} ${year}`;
 
   temp.innerText = `${Math.round(weather.main.temp)}°C`;
 
@@ -52,41 +59,6 @@ function displayResults(weather) {
   range.innerText = `${Math.round(weather.main.temp_min)}°c / ${Math.round(
     weather.main.temp_max
   )}°c`;
-}
-
-// to get date & month
-function dateBuilder(d) {
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-
-  let day = days[d.getDay()];
-  let date = d.getDate();
-  let month = months[d.getMonth()];
-  let year = d.getFullYear();
-
-  return `${day} ${date} - ${month} ${year}`;
 }
 
 // event listneres
