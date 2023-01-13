@@ -14,7 +14,7 @@ window.addEventListener("load", () => {
 
 // fetch api
 function getResults(city) {
-  let url = `http://api.weatherapi.com/v1/current.json?key=2eee5be1c3914c1f93480912231201&q=${city}&aqi=yes`;
+  let url = `http://api.weatherapi.com/v1/current.json?key=2eee5be1c3914c1f93480912231201&q=${city}`;
   fetch(url)
     .then((weather) => {
       if (!weather.ok) {
