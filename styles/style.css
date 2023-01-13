@@ -240,13 +240,17 @@ button:focus span {
 }
 
 .weather-icon {
-  margin-top: -1.25rem;
+  margin-top: -1.6rem;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
 }
 
 .type {
   font-size: 1.75rem;
   font-style: oblique;
   font-weight: 500;
+  max-width: 350px;
 }
 
 .range {
