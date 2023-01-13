@@ -88,7 +88,6 @@ input {
   cursor: pointer;
   box-shadow: var(--box-shadow);
   text-transform: capitalize;
-  margin-right: 1rem;
   font-weight: 500;
 }
 
@@ -109,21 +108,63 @@ input:focus {
   left: 19.75rem;
 }
 
-.search {
-  border: none;
-  padding: 0.7rem 2rem;
-  border-radius: 25px;
-  background-color: #03256c;
-  color: white;
-  cursor: pointer;
-  box-shadow: var(--box-shadow);
-  font-weight: 600;
-  transition: all 0.3s;
+.btn-cont {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.search:hover {
-  transition: all 0.3s;
-  background-color: #042e89;
+/* btn animation */
+button {
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 500;
+  background: #03256c;
+  color: white;
+  padding: 0.6em 2.25em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 25px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: var(--box-shadow);
+}
+
+button span {
+  display: block;
+  margin-left: 0.8em;
+  transition: all 0.3s ease-in-out;
+}
+
+button svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+button:focus .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+button:focus svg {
+  transform: translateX(2.75em) rotate(45deg) scale(1.1);
+}
+
+button:focus span {
+  transform: translateX(6em);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
 }
 
 /* loader */
@@ -320,17 +361,19 @@ input:focus {
     font-size: 1.75rem;
   }
 
+  .btn-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   input {
     margin: -1rem auto 0 auto;
   }
 
   .search-icon {
     left: 19.5rem;
-  }
-
-  .search {
-    width: 150px;
-    margin: 0 auto;
   }
 
   .output-container {

@@ -30,15 +30,42 @@
   </head>
   <body>
     <div class="container">
-      <!-- inputs -->
+      <!-- input container -->
       <div class="input-container">
         <h2 class="title">
           Weather <span>APP</span>
           <i class="fa-solid fa-cloud-sun-rain sun-i"></i>
         </h2>
-        <input type="text" id="city-input" placeholder="Enter a city name..." />
-        <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <button class="search" id="btn">Search</button>
+        <!-- input -->
+        <div class="btn-cont">
+          <input
+            type="text"
+            id="city-input"
+            placeholder="Enter a city name..."
+          />
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+          <!-- btn animation -->
+          <button id="btn">
+            <div class="svg-wrapper-1">
+              <div class="svg-wrapper">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path
+                    fill="currentColor"
+                    d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <span>Search</span>
+          </button>
+        </div>
       </div>
 
       <!-- loader -->
@@ -56,7 +83,6 @@
             <img src="./icons/day/113.png" class="weather-icon" alt="icon" />
           </div>
         </div>
-
         <p class="range">
           27°C / 29°C <i class="fa-solid fa-temperature-high"></i>
         </p>

@@ -8,15 +8,16 @@ const btnSearch = document.getElementById("btn");
 // loader
 window.addEventListener("load", () => {
   const loadEl = document.querySelector(".loader");
-
   loadEl.style.display = "none";
 });
 
 // fetch api
 function getResults(city) {
+  // api key
   let url = `http://api.weatherapi.com/v1/current.json?key=2eee5be1c3914c1f93480912231201&q=${city}`;
   fetch(url)
     .then((weather) => {
+      //location was incorrect or not main location its shows error
       if (!weather.ok) {
         alert("No weather found !!!");
         throw new Error("No weather found !!!");
@@ -28,7 +29,6 @@ function getResults(city) {
 
 // displaying results
 function displayResults(weather) {
-  console.log(weather);
   // to show the output container
   const displayEl = document.querySelector(".output-container");
   displayEl.style.visibility = "visible";
@@ -66,7 +66,6 @@ btnSearch.addEventListener("click", () => {
   } else {
     getResults(inputEl.value);
   }
-
   inputEl.value = "";
 });
 
