@@ -28,6 +28,7 @@ function getResults(city) {
 
 // displaying results
 function displayResults(weather) {
+  console.log(weather);
   // to show the output container
   const displayEl = document.querySelector(".output-container");
   displayEl.style.visibility = "visible";
