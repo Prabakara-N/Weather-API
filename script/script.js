@@ -27,6 +27,26 @@ function getResults(city) {
     .then(displayResults);
 }
 
+// to get time & date
+function getTime(timeNow) {
+  // to get time & date in string format
+  let d = new Date(timeNow.location.localtime);
+  let weekday = d.toLocaleString("default", { weekday: "short" });
+  let month = d.toLocaleString("default", { month: "short" });
+  let date = d.getDate();
+  let hour = d.getHours();
+  let mins = d.getMinutes();
+
+  let period = "AM";
+
+  h = hour > 12 ? hour - 12 : hour;
+  hr = h < 10 ? `0${h}` : h;
+  m = mins < 10 ? `0${mins}` : mins;
+  period = hour >= 12 ? "PM" : "AM";
+
+  return `${weekday}, ${month} ${date} - ${hr} : ${m} ${period}`;
+}
+
 // displaying results
 function displayResults(weather) {
   // to show the output container
@@ -53,7 +73,7 @@ function displayResults(weather) {
   country.innerText = `${weather.location.country}`;
   region.innerText = `${weather.location.region}`;
   temp.innerText = `${weather.current.temp_c}°C`;
-  month_date.innerText = `${weather.location.localtime}`;
+  month_date.innerText = getTime(weather);
   weather_el.innerHTML = `${weather.current.condition.text}`;
   range.innerHTML = `${weather.current.feelslike_c}°C / ${weather.current.temp_c}°C <i class="fa-solid fa-temperature-high">`;
 }
