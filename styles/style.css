@@ -200,6 +200,8 @@ button:focus span {
 }
 
 .city {
+  max-width: 350px;
+  margin: 0 auto 2.5rem auto;
   font-size: 2.75rem;
   font-weight: 600;
   letter-spacing: 3px;
@@ -370,6 +372,7 @@ button:focus span {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
   }
 
   input {
@@ -377,7 +380,7 @@ button:focus span {
   }
 
   .search-icon {
-    left: 19.5rem;
+    left: 19.75rem;
   }
 
   .output-container {
