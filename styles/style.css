@@ -169,8 +169,8 @@ button:focus span {
 
 /* loader */
 .loader {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   margin: 0 auto;
   border: 5px solid #fff;
   border-bottom-color: #03256c;

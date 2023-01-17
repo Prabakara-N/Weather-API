@@ -1,15 +1,12 @@
 // elements
 const inputEl = document.getElementById("city-input");
+const loadEl = document.querySelector(".loader");
+const displayEl = document.querySelector(".output-container");
 
 // btn
 const btnSearch = document.getElementById("btn");
 
 // functions
-// loader
-window.addEventListener("load", () => {
-  const loadEl = document.querySelector(".loader");
-  loadEl.style.display = "none";
-});
 
 // fetch api
 function getResults(city) {
@@ -50,7 +47,6 @@ function getTime(timeNow) {
 // displaying results
 function displayResults(weather) {
   // to show the output container
-  const displayEl = document.querySelector(".output-container");
   displayEl.style.visibility = "visible";
 
   // getting el
@@ -78,21 +74,36 @@ function displayResults(weather) {
   range.innerHTML = `${weather.current.feelslike_c}°C / ${weather.current.temp_c}°C <i class="fa-solid fa-temperature-high">`;
 }
 
+function showLoading() {
+  setTimeout(() => {
+    loadEl.style.display = "none";
+    getResults(inputEl.value);
+    inputEl.value = "";
+  }, 1500);
+}
+
 // event listneres
 // for button
 btnSearch.addEventListener("click", () => {
   if (inputEl.value === "") {
     alert("Please Enter A valid City Name");
   } else {
-    getResults(inputEl.value);
+    displayEl.style.visibility = "hidden";
+    loadEl.style.display = "block";
+    showLoading();
   }
-  inputEl.value = "";
 });
 
 // type & enter give you the output
 inputEl.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
-    getResults(inputEl.value);
-    inputEl.value = "";
+    displayEl.style.visibility = "hidden";
+    loadEl.style.display = "block";
+    showLoading();
   }
+});
+
+// loader
+window.addEventListener("load", () => {
+  loadEl.style.display = "none";
 });
