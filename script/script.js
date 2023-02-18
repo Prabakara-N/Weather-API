@@ -11,7 +11,7 @@ const btnSearch = document.getElementById("btn");
 // fetch api
 function getResults(city) {
   // api key
-  let url = `http://api.weatherapi.com/v1/current.json?key=2eee5be1c3914c1f93480912231201&q=${city}`;
+  let url = `http://api.weatherapi.com/v1/current.json?key=74cfee985da04864bd390458230802&q=${city}`;
   fetch(url)
     .then((weather) => {
       //location was incorrect or not main location its shows error
